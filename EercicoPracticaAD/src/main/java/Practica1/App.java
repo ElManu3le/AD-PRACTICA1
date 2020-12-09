@@ -10,7 +10,8 @@ public class App {
         Connection conn = null;
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "admin", "4DM1n4DM1n");
+            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Jardineria", "admin", "4DM1n4DM1n");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jardineria?", "admin", "4DM1n4DM1n");
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("Select * from cast");
