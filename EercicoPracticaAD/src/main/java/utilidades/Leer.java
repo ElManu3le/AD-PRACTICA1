@@ -30,7 +30,7 @@ public class Leer {
                 dato = Integer.parseInt(dataIn.readLine());
                 error = false;
             } catch (IOException e) {
-                System.out.println("Vuelve a introducir el dato, por favor");
+                System.out.println("No es un numero entero, introduzca el valor valido");
                 error = true;
             } catch (NumberFormatException e) {
                 System.out.println("El dato introducido no es entero");
