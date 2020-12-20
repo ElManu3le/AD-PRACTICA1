@@ -12,9 +12,9 @@ public class App {
 
         try {
 
-             Connection conn = DriverManager.getConnection(
+            Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/jardineria?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-                    "admin", "4DM1n4DM1n");
+                    "root", "gt2rsmanuel620");
 
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("Select * from cliente");
@@ -42,7 +42,7 @@ public class App {
                     System.out.println("Mal!!!");
                 }
 
-            } while (opcion != 0);
+            } while ((opcion <0)&&(opcion>5)  );
 
             switch (opcion) {
                 case 1:
@@ -76,8 +76,21 @@ public class App {
                     System.out.println("Dime el codigo postal cliente");
                     String codigo_postal = Leer.pedirCadena();
                     
+                    
 
-                    statement.executeUpdate("Insert into cliente" + "values('"+ codigo_cliente +" "+ nombre_cliente +"')");
+                    statement.executeUpdate("insert into cliente values('"+ codigo_cliente +" "
+                        + nombre_cliente +" "
+                        + nombre_contacto +" "
+                        + apellido_contacto +" "
+                        + telefono +" "
+                        + direccion1 +" "
+                        + ciudad +" "
+                        + region +" " 
+                        + pais + " " 
+                        + codigo_postal + "')");
+
+
+                        System.out.println(statement);
 
 
 
@@ -87,11 +100,26 @@ public class App {
 
                 System.out.println("Introduce el codigo del cliente a mostrar");
 
+               
+
 
 
                     break;
 
                 case 3:
+
+                System.out.println("Aquí te muestro a todos los clientes de nuestra base de datos.");
+
+                while (rs.next()) {
+                
+                    String id = rs.getString("codigo_cliente");
+                    System.out.print(id);
+                    String name = rs.getString("nombre_cliente");
+                    System.out.println( "\t" + name);
+    
+                }
+    
+                conn.close();
 
                     break;
 
@@ -102,26 +130,13 @@ public class App {
                     break;
             }
 
-            while (rs.next()) {
-                
-                String id = rs.getString("codigo_cliente");
-                System.out.print(id);
-                String name = rs.getString("nombre_cliente");
-                System.out.println(name);
-
-            }
-
-            conn.close();
+           
         } catch (SQLException ex) {
 
             ex.printStackTrace();
         }
 
     }
-    public void crear(App clienteApp) throws SQLException {
-
-        
-              
-    }
+   
 
 }
