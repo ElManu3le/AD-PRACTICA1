@@ -100,14 +100,11 @@ public class App {
 
                         statement.executeUpdate();
 
-                        // conn.close();
-
                     } catch (Exception e) {
-                        e.printStackTrace(); // 8=====================D
+                        e.printStackTrace();
 
                     }
 
-                    // Caso para añadir un nuevo cliente
                     App.main(args);
                     break;
 
@@ -148,13 +145,11 @@ public class App {
 
                         }
 
-                        // String sql = "select * from cliente where codigo_cliente like '% " + idcod. +
-                        // " '%";
-
                     } catch (Exception e) {
-                        // TODO: handle exception
+
                     }
 
+                    App.main(args);
                     break;
 
                 case 3:
