@@ -13,7 +13,7 @@ public class App {
 
             conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/jardineria?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-                    "root", "gt2rsmanuel620");
+                    "root", "admin");//contraseña DB en itaca es admin, sino gt2rsmanuel620
 
         } catch (SQLException ex) {
 
